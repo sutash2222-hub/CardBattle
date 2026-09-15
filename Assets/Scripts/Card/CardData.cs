@@ -13,10 +13,16 @@ public class CardData : ScriptableObject
     public int cost;
     public CardFaction faction;
     public CardType cardType;
+    public CardRarity rarity;
 
     [Header("Abilities")]
     public AbilityType ability;
+    public NewAbilityType abilityType;
     public int abilityValue;
+
+    [Header("Lore")]
+    public string flavorText;
+    public string artist;
 }
 
 public enum CardFaction
@@ -35,6 +41,14 @@ public enum CardType
     Ranged,
     Siege,
     Special
+}
+
+public enum CardRarity
+{
+    Common,
+    Rare,
+    Epic,
+    Legendary
 }
 
 public enum AbilityType
