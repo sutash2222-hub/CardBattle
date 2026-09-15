@@ -1,0 +1,76 @@
+ Card Battle Game - Unity Setup Guide
+==========================================
+
+ขั้นตอนการตั้งค่าโปรเจคใน Unity:
+
+1. CREATE NEW UNITY PROJECT
+   - เปิด Unity Hub
+   - สร้าง project ใหม่ (2D Core template)
+   - ชื่อโปรเจค: CardBattle
+
+2. IMPORT SCRIPTS
+   - คัดลอกไฟล์ทั้งหมดจาก Assets/Scripts/ ไปลงใน Unity project
+   - วางไว้ที่ Assets/Scripts/
+
+3. CREATE CARD DATABASE
+   - คลิกขวาใน Project window
+   - Create > Card Game > Card Data
+   - สร้าง Card แต่ละใบ เช่น:
+     * Geralt (Melee, Power 7, Cost 5)
+     * Ciri (Ranged, Power 4, Cost 3)
+     * Yennefer (Siege, Power 5, Cost 4)
+
+4. CREATE PREFABS
+   - สร้าง UI > Canvas ใหม่
+   - สร้าง Card prefab ที่มี:
+     * CardUI.cs component
+     * Image สำหรับ artwork
+     * TextMeshPro สำหรับ name, power, cost, description
+     * DragDrop component
+   - บันทึกเป็น Prefab ที่ Assets/Prefabs/Card.prefab
+
+5. CREATE SCENES
+   - MainMenu (场景)
+   - BattleScene (场景)
+   - DeckBuilder (场景)
+
+6. SETUP BATTLE SCENE
+   - สร้าง Empty GameObject ชื่อ "BattleManager"
+   - เพิ่ม components:
+     * BattleManager.cs
+     * TurnManager.cs
+     * AIPlayer.cs
+   - สร้าง UI elements:
+     * PlayerHand (Empty UI) + HandUI.cs
+     * PlayerBoard (Empty UI) + BoardUI.cs
+     * EnemyBoard (Empty UI) + BoardUI.cs
+   - ลิงค์ references ใน Inspector
+
+7. CREATE CARD DATA EXAMPLES
+   สร้าง ScriptableObjects สำหรับการ์ด:
+   
+   Card ชื่อ "Geralt":
+   - cardName: Geralt of Rivia
+   - power: 7
+   - cost: 5
+   - faction: Neutral
+   - cardType: Melee
+   - ability: None
+   
+   Card ชื่อ "Ciri":
+   - cardName: Ciri
+   - power: 4
+   - cost: 3
+   - faction: Neutral
+   - cardType: Ranged
+   - ability: None
+
+8. RUN THE GAME
+   - เปิด BattleScene
+   - กด Play
+   - ทดสอบระบบ turn-based battle
+
+================================================
+ Counselor: ใช้ Unity 2022 LTS หรือใหม่กว่า
+ counselor: TextMeshPro ต้อง import ครั้งแรก
+================================================
